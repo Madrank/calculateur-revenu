@@ -1,3 +1,58 @@
+# Node.js modules
 node_modules/
+
+# Electron build output
 dist/
+out/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Env files
 .env
+.env.local
+.env.*.local
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# VSCode or IDE settings
+.vscode/
+.idea/
+
+# Build caches
+.cache/
+*.tsbuildinfo
+
+# Installer outputs
+*.exe
+*.app
+*.dmg
+*.deb
+*.snap
+*.rpm
+*.msi
+*.pkg
+
+# Misc
+*.bak
+*.swp
+*.tmp
+*.orig
+
+# Electron crash dumps
+*.dmp
+
+# macOS quarantine attribute (si jamais tu passes sur Mac plus tard)
+*.quarantine
+
+# GitHub actions build artifacts
+.github/workflows/*.log
