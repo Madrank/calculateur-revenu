@@ -1,0 +1,38 @@
+name: Build & Release
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Cloner le dépôt
+        uses: actions/checkout@v3
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Installer les dépendances
+        run: npm install
+
+      - name: Compiler l'application
+        run: npm run dist
+
+      - name: Rechercher les fichiers .exe
+        run: |
+          mkdir artifacts
+          Get-ChildItem -Path dist -Filter *.exe -Recurse | ForEach-Object {
+            Copy-Item $_.FullName -Destination artifacts
+          }
+
+      - name: Upload de l’EXE dans la release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: artifacts/*.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
