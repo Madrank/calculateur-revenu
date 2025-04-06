@@ -1,0 +1,32 @@
+{
+  "name": "calculateur-revenu",
+  "version": "1.0.0",
+  "description": "Application de calcul du revenu mensuel avec simulation de charges",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^26.0.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.tonnom.calculateur",
+    "productName": "Calculateur de revenu",
+    "files": [
+      "**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  },
+  "electronPackagerConfig": {
+    "asar": true
+  }
+}
